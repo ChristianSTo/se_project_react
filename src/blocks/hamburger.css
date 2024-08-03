@@ -1,0 +1,27 @@
+.hamburger {
+  display: none;
+}
+
+.hamburger__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  background: url("../assets/images/hamburger.svg") no-repeat center transparent;
+  position: absolute;
+  top: 18px;
+  right: 16px;
+}
+
+.hamburger__icon:hover {
+  cursor: pointer;
+  opacity: 60%;
+}
+
+@media screen and (max-width: 600px) {
+  .hamburger {
+    display: block;
+  }
+}

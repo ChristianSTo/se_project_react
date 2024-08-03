@@ -1,0 +1,37 @@
+.cards {
+  margin: 0px;
+}
+
+.cards__text {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.8px;
+  text-align: left;
+  margin: 0px 40px 34px;
+}
+
+.cards__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 325px);
+  grid-template-rows: auto;
+  gap: 20px 20px;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0px 40px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 380px) {
+  .cards__list {
+    grid-template-columns: minmax(auto, 164px) auto;
+    margin: 0px 16px;
+    gap: 16px 15px;
+  }
+
+  .cards__text {
+    margin: 32px 16px 20px;
+  }
+}

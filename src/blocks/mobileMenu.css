@@ -1,0 +1,103 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  right: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s ease;
+}
+
+.menu_visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu__profile {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px 16px;
+  width: 343px;
+  height: 208px;
+  border-radius: 10px;
+  position: relative;
+  background-color: #fff;
+}
+
+.menu__profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+}
+
+.menu__button {
+  height: 24px;
+  color: #000;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  margin: 0px;
+  padding: 0px;
+  background: none;
+  border: none;
+  margin: 24px 0px 0px;
+  transition: opacity 0.3s ease;
+}
+
+.menu__button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.menu__username {
+  color: #000;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.8px;
+  text-align: left;
+  margin: 0px;
+  margin-right: 12px;
+}
+
+.menu__avatar {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 0px;
+}
+
+.menu__close-button {
+  width: 16px;
+  height: 16px;
+  background: url("../assets/images/unionBlack.svg") no-repeat center
+    transparent;
+  position: absolute;
+  top: 11px;
+  right: 11.39px;
+  border: 0px;
+  transition: opacity 0.3s ease;
+}
+
+.menu__close-button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .menu__profile {
+    display: flex;
+  }
+}

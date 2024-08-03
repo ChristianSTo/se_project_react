@@ -1,0 +1,30 @@
+.footer {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 42px;
+}
+
+.footer__copyright {
+  width: 337px;
+  height: 20px;
+  text-align: left;
+}
+
+.footer__year {
+  text-align: right;
+}
+
+@media screen and (max-width: 380px) {
+  .footer__container {
+    margin: 83px 16px 0px;
+  }
+}
