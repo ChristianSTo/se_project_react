@@ -30,7 +30,11 @@ function WeatherCard({ weatherData }) {
           {Math.round(weatherData.temp.F)}&deg;F
         </p>
         {/* rounded to match css, or else the decimals make it too long */}
-        <img className="weather-card__image" src={weatherIcon} alt=""></img>
+        <img
+          className="weather-card__image"
+          src={weatherIcon}
+          alt={`Image of ${weatherIcon}`}
+        ></img>
       </div>
     </section>
   );

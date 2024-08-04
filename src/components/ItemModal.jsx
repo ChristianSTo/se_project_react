@@ -1,17 +1,9 @@
 import "../blocks/modal.css";
 
-function ItemModal({
-  name,
-  activeModal,
-  card,
-  handleCloseClick,
-  handleModalClick,
-}) {
+function ItemModal({ name, card, handleCloseClick, handleModalClick, isOpen }) {
   return (
     <div
-      className={`modal ${
-        activeModal === "preview-card" && "modal_visible"
-      } modal_type_${name}`}
+      className={`modal ${isOpen && "modal_visible"} modal_type_${name}`}
       onClick={handleModalClick}
     >
       <div className="modal__card">

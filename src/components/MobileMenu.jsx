@@ -13,7 +13,7 @@ function MobileMenu({ isMobileMenuOpened, handleAddClick, handleCloseClick }) {
         ></button>
         <div className="menu__profile-container">
           <p className="menu__username">Terrence Tegegne</p>
-          <img className="menu__avatar" src={avatar}></img>
+          <img className="menu__avatar" src={avatar} alt="profile avatar"></img>
         </div>
 
         <button type="button" className="menu__button" onClick={handleAddClick}>

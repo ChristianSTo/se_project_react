@@ -33,26 +33,9 @@ function App() {
     setActiveModal("");
   };
 
-  const toggleMobileMenu = (evt) => {
-    if (!evt.target.className.includes("modal_visible")) {
-      alert(isMobileMenuOpened);
-    }
-    if (isMobileMenuOpened == true) {
-      setIsMobileMenuOpened(false);
-    } else {
-      setIsMobileMenuOpened(true);
-    }
-  };
-
   const clickAwayModal = (evt) => {
-    let isInsideContainer = false;
     if (evt.target.className.includes("modal_visible")) {
-      isInsideContainer = false;
-    } else if (!evt.target.className.includes("modal_visible")) {
-      isInsideContainer = true;
-    }
-    if (isInsideContainer === false) {
-      setActiveModal("");
+      closeModal();
     }
   };
 
@@ -67,12 +50,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    document.addEventListener("keydown", (evt) => {
+    if (!activeModal) return;
+
+    const handleEscClose = (evt) => {
       if (evt.key === "Escape") {
         closeModal();
       }
-    });
-  });
+    };
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   return (
     <>
@@ -83,9 +73,9 @@ function App() {
         title="New Garment"
         name="new-garment"
         buttonText="Add garment"
-        activeModal={activeModal}
         handleCloseClick={closeModal}
         handleModalClick={clickAwayModal}
+        isOpen={activeModal === "add-garment"}
       >
         <label htmlFor="input-name" className="modal__label">
           Name
@@ -148,10 +138,10 @@ function App() {
       </ModalWithForm>
       <ItemModal
         name="preview-card"
-        activeModal={activeModal}
         handleCloseClick={closeModal}
         handleModalClick={clickAwayModal}
         card={selectedCard}
+        isOpen={activeModal === "preview-card"}
       />
     </>
   );
