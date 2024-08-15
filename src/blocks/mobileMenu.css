@@ -96,7 +96,11 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
+.menu__profile-link {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 850px) {
   .menu__profile {
     display: flex;
   }

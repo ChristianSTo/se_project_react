@@ -1,3 +1,5 @@
+import React, { useContext } from "react";
+
 import sunny from "../assets/images/sunny.png";
 import cloudy from "../assets/images/cloudy.png";
 import rain from "../assets/images/rain.png";
@@ -7,7 +9,11 @@ import fog from "../assets/images/fog.png";
 
 import "../blocks/weathercard.css";
 
+import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
+
 function WeatherCard({ weatherData }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   let weatherIcon = sunny;
 
   if (weatherData.sky.main == "Clouds") {
@@ -23,13 +29,13 @@ function WeatherCard({ weatherData }) {
   } else {
     weatherIcon = sunny;
   }
+
   return (
     <section className="weather-card">
       <div className="weather-card__info">
         <p className="weather-card__temp">
-          {Math.round(weatherData.temp.F)}&deg;F
+          {weatherData.temp[currentTemperatureUnit]}
         </p>
-        {/* rounded to match css, or else the decimals make it too long */}
         <img
           className="weather-card__image"
           src={weatherIcon}

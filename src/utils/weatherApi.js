@@ -13,7 +13,10 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
 export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
-  result.temp = { F: data.main.temp };
+  result.temp = {
+    F: `${Math.round(data.main.temp)}°F`,
+    C: `${Math.round(((data.main.temp - 32) * 5) / 9)}°C`,
+  };
   result.type = getWeatherType(result.temp.F);
   result.sky = { main: data.weather[0].main };
   return result;

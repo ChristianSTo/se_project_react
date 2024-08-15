@@ -1,22 +1,29 @@
+import React, { useContext } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
+
 import WeatherCard from "./WeatherCard";
 import ItemCard from "./ItemCard";
 import "../blocks/card.css";
 
-import { defaultClothingItems } from "../utils/constants";
+// import { defaultClothingItems } from "../utils/constants";
 
-function Main({ weatherData, handleCardClick }) {
+function Main({ weatherData, handleCardClick, clothingItems }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is {Math.round(weatherData.temp.F)}&deg;F / You may want to
+          Today is {weatherData.temp[currentTemperatureUnit]} / You may want to
           wear:
         </p>
         {/* rounded to match css, or else the decimals make it too long for mobile*/}
         <ul className="cards__list">
           {/* take each card in the array, then filter them based on type then render them on the page */}
-          {defaultClothingItems
+          {clothingItems
             .filter((item) => {
               return item.weather === weatherData.type;
             })

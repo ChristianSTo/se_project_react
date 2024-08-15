@@ -2,7 +2,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0px 40px;
-  margin-bottom: 28px;
+  margin: 0px;
+}
+
+.header__link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__link:hover {
+  cursor: pointer;
 }
 
 .header__info-container {
@@ -36,6 +48,76 @@
   margin: 0px;
   margin-right: auto;
 }
+
+/* .header__switch {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 56px;
+  height: 28px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.36px;
+  text-align: center;
+  color: #7e7e7e;
+  background-color: #fff;
+  border: 2px solid #7e7e7e;
+  border-radius: 20px;
+  margin: 0px;
+  margin-right: 20px;
+  padding: 0px;
+  transition: border-color 0.3s ease;
+  position: relative;
+}
+
+.header__switch:hover {
+  cursor: pointer;
+  border-color: #000;
+}
+
+.header__switch-circle {
+  width: 28px;
+  height: 28px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  left: -2px;
+  right: 0px;
+  transition: width 0.3s ease;
+  transition: left 1s ease-in-out;
+}
+
+.header__switch-circle:hover {
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.header__switch-circle_c {
+  width: 28px;
+  height: 28px;
+  left: 25px;
+}
+
+.header__switch-F {
+  color: #fff;
+  transition: color 0.3s ease;
+  z-index: 999;
+}
+
+.header__switch-F_off {
+  color: #7e7e7e;
+}
+.header__switch-C {
+  color: #7e7e7e;
+  transition: color 0.3s ease;
+  z-index: 999;
+}
+
+.header__switch-C_on {
+  color: #fff;
+} */
 
 .header__button {
   height: 24px;
@@ -80,7 +162,7 @@
   margin: 0px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
   .header {
     margin: 18px 16px 16px;
     padding: 0px;

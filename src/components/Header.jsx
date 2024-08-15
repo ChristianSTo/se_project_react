@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import headerLogo from "../assets/images/logo.svg";
 import avatar from "../assets/images/avatar.png";
 import Hamburger from "./HamburgerIcon.jsx";
 import MobileMenu from "./MobileMenu.jsx";
+import UnitSwitch from "./UnitSwitch";
 
 import "../blocks/header.css";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({ handleAddClick, handleSwitchClick, weatherData }) {
   //code for current date (no need for api)
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -25,7 +27,9 @@ function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <div className="header__info-container">
-        <img className="header__logo" src={headerLogo} alt="App logo" />
+        <Link to="/" className="header__link">
+          <img className="header__logo" src={headerLogo} alt="App logo" />
+        </Link>
         <p className="header__info">
           {currentDate}, {weatherData.city}
         </p>
@@ -35,8 +39,11 @@ function Header({ handleAddClick, weatherData }) {
         isMobileMenuOpened={isMobileMenuOpened}
         handleAddClick={handleAddClick}
         handleCloseClick={closeMenu}
+        handleSwitchClick={handleSwitchClick}
       />
       <div className="header__profile-container">
+        <UnitSwitch handleSwitchClick={handleSwitchClick} />
+
         <button
           type="button"
           onClick={handleAddClick}
@@ -44,8 +51,15 @@ function Header({ handleAddClick, weatherData }) {
         >
           + Add Clothes
         </button>
-        <p className="header__username">Terrence Tegegne</p>
-        <img className="header__avatar" src={avatar} alt="profile avatar"></img>
+        <Link to="/profile" className="header__link">
+          <p className="header__username">Terrence Tegegne</p>
+
+          <img
+            className="header__avatar"
+            src={avatar}
+            alt="profile avatar"
+          ></img>
+        </Link>
       </div>
     </header>
   );

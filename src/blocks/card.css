@@ -24,7 +24,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 850px) {
   .cards__list {
     grid-template-columns: minmax(auto, 164px) auto;
     margin: 0px 16px;

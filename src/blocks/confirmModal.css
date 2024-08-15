@@ -1,0 +1,89 @@
+.confirm-modal {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 0px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 999;
+  transition: opacity 0.3s, visibility 0.3s ease;
+  overflow: hidden;
+}
+
+.confirm-modal_visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.confirm-modal__form {
+  max-width: 670px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+
+.confirm-modal__close-button {
+  width: 16px;
+  height: 16px;
+  background: url("../assets/images/union.svg") no-repeat center transparent;
+  padding: 0px;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+
+.confirm-modal__message {
+  max-width: 367px;
+  width: 100%;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  margin: 60px 0px 0px;
+}
+
+.confirm-modal__delete-button {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  color: #ff4d00;
+  background: none;
+  margin: 40px 0px 0px;
+}
+
+.confirm-modal__cancel-button {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  background: none;
+  margin: 24px 0px 60px;
+}
+
+.confirm-modal__button {
+  border: none;
+  transition: opacity 0.3s ease;
+}
+
+.confirm-modal__button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
