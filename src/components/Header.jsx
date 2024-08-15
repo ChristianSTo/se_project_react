@@ -5,7 +5,7 @@ import headerLogo from "../assets/images/logo.svg";
 import avatar from "../assets/images/avatar.png";
 import Hamburger from "./HamburgerIcon.jsx";
 import MobileMenu from "./MobileMenu.jsx";
-import UnitSwitch from "./UnitSwitch";
+import UnitSwitch from "./ToggleSwitch.jsx";
 
 import "../blocks/header.css";
 

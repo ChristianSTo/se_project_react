@@ -1,6 +1,6 @@
 import avatar from "../assets/images/avatar.png";
 import { Link } from "react-router-dom";
-import UnitSwitch from "./UnitSwitch";
+import ToggleSwitch from "./ToggleSwitch";
 import "../blocks/mobileMenu.css";
 
 function MobileMenu({
@@ -31,7 +31,7 @@ function MobileMenu({
         <button type="button" className="menu__button" onClick={handleAddClick}>
           + Add Clothes
         </button>
-        <UnitSwitch handleSwitchClick={handleSwitchClick} />
+        <ToggleSwitch handleSwitchClick={handleSwitchClick} />
       </div>
     </div>
   );

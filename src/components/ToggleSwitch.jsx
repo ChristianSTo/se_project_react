@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
 
-function UnitSwitch({ handleSwitchClick }) {
+function ToggleSwitch({ handleSwitchClick }) {
   //bring in the context of the unit, instead of passing it as a prop through so many things
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const toggleUnit = () => {
@@ -48,4 +48,4 @@ function UnitSwitch({ handleSwitchClick }) {
   );
 }
 
-export default UnitSwitch;
+export default ToggleSwitch;
