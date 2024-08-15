@@ -1,12 +1,15 @@
 const baseUrl = "http://localhost:3001";
 
+//higher scope function for repeated res.ok checks
+const checkRes = (res) => {
+  return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
+};
+
 //get the initial provided items
 function getItems() {
   return fetch(`${baseUrl}/items`, {
     method: "GET",
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
-  });
+  }).then(checkRes);
 }
 
 //add items
@@ -17,9 +20,7 @@ function addItems({ name, weather, imageUrl }) {
       "Content-Type": "application/json", // based off the github readMe notes
     },
     body: JSON.stringify({ name, weather, imageUrl }),
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
-  });
+  }).then(checkRes);
 }
 
 //delete items
@@ -30,9 +31,7 @@ function deleteItems({ itemId }) {
       "Content-Type": "application/json", // based off the github readMe notes
     },
     body: JSON.stringify({ itemId }),
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
-  });
+  }).then(checkRes);
 }
 
 export { getItems, addItems, deleteItems };

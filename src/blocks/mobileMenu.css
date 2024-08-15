@@ -80,8 +80,8 @@
 }
 
 .menu__close-button {
-  width: 16px;
-  height: 16px;
+  width: 28px;
+  height: 28px;
   background: url("../assets/images/unionBlack.svg") no-repeat center
     transparent;
   position: absolute;

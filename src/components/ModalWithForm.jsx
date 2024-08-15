@@ -18,36 +18,19 @@ function ModalWithForm({
   //useRef creates a ref
   //the rest is basically the same as the past projects.
   //for now, the button is enough, I might do the error messages later on.
+  // do not use queryselector for React apps
   const formRef = useRef(null);
 
   const isFormvalid = () => {
     const form = formRef.current;
-    const inputElements = form.querySelectorAll(".modal__input");
-    const isValid = Array.from(inputElements).every(
-      (input) => input.validity.valid
-    );
+    const isValid = form.checkValidity();
+
     if (!isValid) {
       setButtonDisability(true);
     } else {
       setButtonDisability(false);
     }
   };
-
-  //each input should listen to if it is valid
-  const inputEventListeners = () => {
-    const form = formRef.current;
-    const inputElements = form.querySelectorAll(".modal__input");
-    inputElements.forEach((input) => {
-      input.addEventListener("input", isFormvalid);
-    });
-  };
-
-  //run this, if modal with form is opened.
-  useEffect(() => {
-    if (formRef.current) {
-      inputEventListeners();
-    }
-  }, [isOpen]);
 
   return (
     <div
@@ -57,6 +40,8 @@ function ModalWithForm({
       <form
         className="modal__form"
         name={name}
+        onInput={isFormvalid}
+        // adding this replaces eventlisteners for each input.
         onSubmit={onSubmit}
         ref={formRef}
         // adding this is kinda like a className to select, but for React components

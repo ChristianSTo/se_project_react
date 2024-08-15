@@ -30,6 +30,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -58,6 +59,7 @@ function App() {
   };
 
   const onAddItem = (values) => {
+    setIsLoading(true);
     //update the api
     addItems({
       name: values.name,
@@ -69,8 +71,8 @@ function App() {
       .then((data) => {
         console.log(data);
         setClothingItems([data, ...clothingItems]);
-
         closeModal();
+        setIsLoading(false);
       })
       .catch(console.error);
   };
@@ -130,64 +132,63 @@ function App() {
   }, [activeModal]);
 
   return (
-    <>
-      <CurrentTemperatureUnitContext.Provider
-        value={{ currentTemperatureUnit, handleSwitchClick }}
-      >
-        <Header
-          handleAddClick={handleAddClick}
-          handleSwitchClick={handleSwitchClick}
-          weatherData={weatherData}
+    <CurrentTemperatureUnitContext.Provider
+      value={{ currentTemperatureUnit, handleSwitchClick }}
+    >
+      <Header
+        handleAddClick={handleAddClick}
+        handleSwitchClick={handleSwitchClick}
+        weatherData={weatherData}
+      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Main
+              weatherData={weatherData}
+              handleCardClick={handleCardClick}
+              clothingItems={clothingItems}
+            />
+          }
         />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                weatherData={weatherData}
-                handleCardClick={handleCardClick}
-                clothingItems={clothingItems}
-              />
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <Profile
-                weatherData={weatherData}
-                handleCardClick={handleCardClick}
-                handleAddClick={handleAddClick}
-                clothingItems={clothingItems}
-              />
-            }
-          />
-        </Routes>
-        <Footer />
-        <AddItemModal
-          onCloseModal={closeModal}
-          onAddItem={onAddItem}
-          handleModalClick={clickAwayModal}
-          isOpen={activeModal === "add-garment"}
+        <Route
+          path="/profile"
+          element={
+            <Profile
+              weatherData={weatherData}
+              handleCardClick={handleCardClick}
+              handleAddClick={handleAddClick}
+              clothingItems={clothingItems}
+            />
+          }
         />
+      </Routes>
+      <Footer />
+      <AddItemModal
+        onCloseModal={closeModal}
+        onAddItem={onAddItem}
+        handleModalClick={clickAwayModal}
+        isOpen={activeModal === "add-garment"}
+        isLoading={isLoading}
+      />
 
-        <ItemModal
-          name="preview-card"
-          handleCloseClick={closeModal}
-          handleModalClick={clickAwayModal}
-          handleDeleteClick={handleDeleteClick}
-          card={selectedCard}
-          isOpen={activeModal === "preview-card"}
-        />
+      <ItemModal
+        name="preview-card"
+        handleCloseClick={closeModal}
+        handleModalClick={clickAwayModal}
+        handleDeleteClick={handleDeleteClick}
+        card={selectedCard}
+        isOpen={activeModal === "preview-card"}
+      />
 
-        <ConfirmModal
-          handleCloseClick={closeModal}
-          handleModalClick={clickAwayModal}
-          onRemoveItem={handleConfirmDelete}
-          card={selectedCard}
-          isOpen={activeModal === "confirm-action"}
-        />
-      </CurrentTemperatureUnitContext.Provider>
-    </>
+      <ConfirmModal
+        handleCloseClick={closeModal}
+        handleModalClick={clickAwayModal}
+        onRemoveItem={handleConfirmDelete}
+        card={selectedCard}
+        isOpen={activeModal === "confirm-action"}
+      />
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 

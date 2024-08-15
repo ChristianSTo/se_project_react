@@ -6,6 +6,7 @@ import ModalWithForm from "./ModalWithForm";
 // onAddItem refers to handleAddItemSubmit, which is declared in App.js
 const AddItemModal = ({
   isOpen,
+  isLoading,
   onAddItem,
   onCloseModal,
   handleModalClick,
@@ -39,7 +40,7 @@ const AddItemModal = ({
     <ModalWithForm
       title="New Garment"
       name="new-garment"
-      buttonText="Add garment"
+      buttonText={`${isLoading ? "Saving..." : "Add garment"}`}
       handleCloseClick={onCloseModal}
       handleModalClick={handleModalClick}
       isOpen={isOpen}
