@@ -23,7 +23,6 @@ function ModalWithForm({
   const isFormvalid = () => {
     const form = formRef.current;
     const inputElements = form.querySelectorAll(".modal__input");
-    console.log(inputElements);
     const isValid = Array.from(inputElements).every(
       (input) => input.validity.valid
     );

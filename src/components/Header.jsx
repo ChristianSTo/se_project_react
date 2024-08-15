@@ -5,7 +5,7 @@ import headerLogo from "../assets/images/logo.svg";
 import avatar from "../assets/images/avatar.png";
 import Hamburger from "./HamburgerIcon.jsx";
 import MobileMenu from "./MobileMenu.jsx";
-import UnitSwitch from "./ToggleSwitch.jsx";
+import ToggleSwitch from "./ToggleSwitch.jsx";
 
 import "../blocks/header.css";
 
@@ -42,7 +42,7 @@ function Header({ handleAddClick, handleSwitchClick, weatherData }) {
         handleSwitchClick={handleSwitchClick}
       />
       <div className="header__profile-container">
-        <UnitSwitch handleSwitchClick={handleSwitchClick} />
+        <ToggleSwitch handleSwitchClick={handleSwitchClick} />
 
         <button
           type="button"

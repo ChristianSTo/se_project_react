@@ -77,7 +77,7 @@ const AddItemModal = ({
           <input
             type="radio"
             className="modal__input modal__choice-input"
-            value="Hot"
+            value="hot"
             id="hot"
             name="tempChoice"
             onChange={handleTypeChange}
@@ -89,7 +89,7 @@ const AddItemModal = ({
           <input
             type="radio"
             className="modal__input modal__choice-input"
-            value="Warm"
+            value="warm"
             id="warm"
             name="tempChoice"
             onChange={handleTypeChange}
@@ -101,7 +101,7 @@ const AddItemModal = ({
           <input
             type="radio"
             className="modal__input modal__choice-input"
-            value="Cold"
+            value="cold"
             id="cold"
             name="tempChoice"
             onChange={handleTypeChange}

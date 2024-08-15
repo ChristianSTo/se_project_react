@@ -11,6 +11,7 @@ import "../blocks/card.css";
 
 function Main({ weatherData, handleCardClick, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  console.log(weatherData);
 
   return (
     <main>
@@ -25,6 +26,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {/* take each card in the array, then filter them based on type then render them on the page */}
           {clothingItems
             .filter((item) => {
+              console.log(item.weather);
               return item.weather === weatherData.type;
             })
             .map((item) => {
