@@ -2,17 +2,14 @@ import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
+import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 import WeatherCard from "./WeatherCard";
 import ItemCard from "./ItemCard";
 import "../blocks/card.css";
 
-// import { defaultClothingItems } from "../utils/constants";
-
-function Main({ weatherData, handleCardClick, clothingItems }) {
+function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log(weatherData);
-
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
@@ -26,7 +23,6 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {/* take each card in the array, then filter them based on type then render them on the page */}
           {clothingItems
             .filter((item) => {
-              console.log(item.weather);
               return item.weather === weatherData.type;
             })
             .map((item) => {
@@ -35,6 +31,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
                   key={item._id}
                   item={item}
                   previewCard={handleCardClick}
+                  onCardLike={onCardLike}
                 />
               );
             })}

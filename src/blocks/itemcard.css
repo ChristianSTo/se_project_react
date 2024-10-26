@@ -1,5 +1,6 @@
 .item-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 328px;
@@ -15,7 +16,18 @@
   cursor: pointer;
 }
 
+.item-card__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  z-index: 1;
+}
+
 .item-card__name {
+  height: 20px;
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -26,9 +38,32 @@
   margin: 0px;
   padding: 2px 12px;
   border-radius: 4px;
-  position: absolute;
-  top: 15px;
-  z-index: 1;
+}
+
+.item-card__like-button {
+  background: url("../assets/images/likeButton.svg") no-repeat center
+    transparent;
+  width: 18px;
+  height: 15px;
+  border: none;
+  transition: opacity 0.3s ease;
+  margin: 0px 0px 0px 10px;
+  padding: 0px;
+}
+
+.item-card__like-button:hover {
+  cursor: pointer;
+  opacity: 50%;
+}
+
+.item-card__like-button_liked {
+  background: url("../assets/images/likeButtonLiked.svg") no-repeat center
+    transparent;
+}
+
+.item-card__like-button_hidden {
+  display: none;
+  cursor: not-allowed;
 }
 
 .item-card__image {

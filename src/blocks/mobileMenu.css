@@ -79,6 +79,24 @@
   margin: 0px;
 }
 
+.menu__avatar-letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.8px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 0px;
+  padding: 0px;
+}
+
 .menu__close-button {
   width: 28px;
   height: 28px;

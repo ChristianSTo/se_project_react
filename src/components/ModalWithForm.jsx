@@ -7,10 +7,13 @@ function ModalWithForm({
   title,
   name,
   buttonText,
+  accessButtonText,
   handleCloseClick,
   handleModalClick,
   isOpen,
+  isLoggedIn,
   onSubmit,
+  switchForms,
 }) {
   const [buttonDisability, setButtonDisability] = useState(true);
 
@@ -32,6 +35,10 @@ function ModalWithForm({
     }
   };
 
+  // const switchForms = () => {
+  //   console.log(isOpen);
+  // };
+
   return (
     <div
       className={`modal modal_type_${name} ${isOpen && "modal_visible"}`}
@@ -48,13 +55,29 @@ function ModalWithForm({
       >
         <h2 className="modal__title">{title}</h2>
         {children}
-        <button
-          type="submit"
-          className="modal__submit-button"
-          disabled={buttonDisability}
-        >
-          {buttonText}
-        </button>
+        <div className="modal__button-container">
+          <button
+            type="submit"
+            className={`modal__submit-button 
+            }`}
+            disabled={buttonDisability}
+          >
+            {buttonText}
+          </button>
+          <div>
+            {isLoggedIn ? (
+              <></>
+            ) : (
+              <button
+                type="button"
+                className="modal__access-button"
+                onClick={switchForms}
+              >
+                {accessButtonText}
+              </button>
+            )}
+          </div>
+        </div>
         <button
           onClick={handleCloseClick}
           type="button"
@@ -66,3 +89,5 @@ function ModalWithForm({
 }
 
 export default ModalWithForm;
+
+//${ isLoggedIn ? "" : "modal__submit-button:disabled "

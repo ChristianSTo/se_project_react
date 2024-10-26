@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "../blocks/addModal.css";
+import "../blocks/modal.css";
 import ModalWithForm from "./ModalWithForm";
 
 // onAddItem refers to handleAddItemSubmit, which is declared in App.js
@@ -34,6 +34,9 @@ const AddItemModal = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onAddItem({ name, link, weather });
+    setName("");
+    setLink("");
+    setType("");
   };
 
   return (
@@ -82,6 +85,7 @@ const AddItemModal = ({
             id="hot"
             name="tempChoice"
             onChange={handleTypeChange}
+            checked={weather === "hot"}
             required
           ></input>
           Hot
@@ -94,6 +98,7 @@ const AddItemModal = ({
             id="warm"
             name="tempChoice"
             onChange={handleTypeChange}
+            checked={weather === "warm"}
             required
           ></input>
           Warm
@@ -106,6 +111,7 @@ const AddItemModal = ({
             id="cold"
             name="tempChoice"
             onChange={handleTypeChange}
+            checked={weather === "cold"}
             required
           ></input>
           Cold

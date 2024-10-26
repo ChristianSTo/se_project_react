@@ -25,13 +25,13 @@
   position: relative;
   max-width: 496px;
   width: 100%;
-  max-height: 436px;
+  max-height: 456px;
   border-radius: 20px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   margin: 0px;
-  padding: 28px;
+  padding: 28px 28px 36px;
   box-sizing: border-box;
 }
 
@@ -75,6 +75,10 @@
   padding: 0px 0px 4px;
 }
 
+.modal__input:last-of-type {
+  margin-bottom: 5px;
+}
+
 .modal__choice-input {
   margin: 0px;
   margin-right: 11px;
@@ -90,6 +94,15 @@
   padding: 0px;
 }
 
+.modal__button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  background-color: none;
+  margin: 7px 0px 0px;
+}
+
 .modal__submit-button {
   max-width: 124px;
   width: 100%;
@@ -103,7 +116,7 @@
   background-color: #000;
   border: none;
   border-radius: 4px;
-  margin-top: 32px;
+  margin: 0px;
   padding: 8px 16px;
   transition: opacity 0.3s ease;
 }
@@ -116,6 +129,28 @@
 .modal__submit-button:disabled {
   cursor: not-allowed;
   opacity: 30%;
+}
+
+.modal__access-button {
+  max-width: 124px;
+  width: 100%;
+  height: 36px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  border: none;
+  margin: 0px 0px 0px 12px;
+  padding: 0px;
+  transition: opacity 0.3s ease;
+}
+
+.modal__access-button:hover {
+  cursor: pointer;
+  opacity: 60%;
 }
 
 .modal__close-button {
@@ -204,6 +239,35 @@
   cursor: pointer;
 }
 
+.modal__card-delete-button_hidden {
+  display: block;
+}
+
+.modal__card-delete-button_hidden {
+  display: none;
+}
+
+.modal__error-message {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.modal__error-message_visible {
+  opacity: 1;
+  visibility: visible;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  color: red;
+  width: 100%;
+  height: 20px;
+}
+
 @media screen and (max-width: 800px) {
   /* for the card */
 
@@ -241,11 +305,11 @@
 
   .modal__form {
     max-width: 375px;
-    max-height: 455px;
+    max-height: 550px;
     border-radius: 20px 20px 0px 0px;
     padding: 32px 16px;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
   }
 
   .modal__title {
@@ -277,9 +341,7 @@
 
   .modal__submit-button {
     align-self: center;
-    max-width: none;
     height: 44px;
-    margin-top: 30px;
     padding: 12px 0px;
   }
 

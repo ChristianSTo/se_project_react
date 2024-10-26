@@ -1,6 +1,9 @@
+import { useContext } from "react";
+
 import "../blocks/clothesSection.css";
 import ItemCard from "./ItemCard";
 import { defaultClothingItems } from "../utils/constants";
+import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 function ClothesSection({
   weatherData,
@@ -8,7 +11,10 @@ function ClothesSection({
   handleAddClick,
   previewCard,
   clothingItems,
+  onCardLike,
 }) {
+  const currentUser = useContext(CurrentUserContext);
+
   return (
     <div className="clothes-section">
       <div className="clothes-section__banner">
@@ -26,13 +32,16 @@ function ClothesSection({
         {/* not filtering to list all owned clothes */}
         {/* filtering in main for weather suggestions */}
         {clothingItems.map((item) => {
-          return (
-            <ItemCard
-              key={item._id}
-              item={item}
-              previewCard={handleCardClick}
-            />
-          );
+          if (item.owner === currentUser._id) {
+            return (
+              <ItemCard
+                key={item._id}
+                item={item}
+                previewCard={handleCardClick}
+                onCardLike={onCardLike}
+              />
+            );
+          }
         })}
       </ul>
     </div>

@@ -8,18 +8,25 @@ function Profile({
   weatherData,
   handleCardClick,
   handleAddClick,
+  handleChangeClick,
+  handleLogOutClick,
   previewCard,
   clothingItems,
+  onCardLike,
 }) {
   return (
     <div className="profile">
-      <SideBar />
+      <SideBar
+        handleChangeClick={handleChangeClick}
+        handleLogOutClick={handleLogOutClick}
+      />
       <ClothesSection
         weatherData={weatherData}
         handleCardClick={handleCardClick}
         handleAddClick={handleAddClick}
         previewCard={previewCard}
         clothingItems={clothingItems}
+        onCardLike={onCardLike}
       />
     </div>
   );
