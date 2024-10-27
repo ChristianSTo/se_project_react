@@ -93,8 +93,8 @@ function App() {
 
   const closeModal = () => {
     setActiveModal("");
-    isSameUser(false);
-    isNoUser(false);
+    setIsSameUser(false);
+    setIsNoUser(false);
   };
 
   const clickAwayModal = (evt) => {
