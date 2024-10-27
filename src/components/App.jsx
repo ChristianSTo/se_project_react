@@ -391,6 +391,7 @@ function App() {
         />
 
         <EditProfileModal
+          onCloseModal={closeModal}
           handleCloseClick={closeModal}
           handleModalClick={clickAwayModal}
           isOpen={activeModal === "edit-profile"}

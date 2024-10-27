@@ -47,7 +47,6 @@ const EditProfileModal = ({
       title="Edit Profile"
       name="edit-profile"
       buttonText={`${isLoading ? "Saving..." : "Edit Profile"}`}
-      //   accessButtonText={`${isLoading ? "Loading..." : "or Sign up"}`}
       handleCloseClick={onCloseModal}
       handleModalClick={handleModalClick}
       isOpen={isOpen}
