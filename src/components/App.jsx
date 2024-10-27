@@ -261,7 +261,7 @@ function App() {
     //reset variables
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
-    setCurrentUser(null);
+    setCurrentUser(false);
   };
 
   useEffect(() => {
