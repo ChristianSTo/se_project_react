@@ -1,14 +1,5 @@
 const baseUrl = "http://localhost:3001";
-
-//higher scope function for repeated res.ok checks
-const checkRes = (res) => {
-  if (!res.ok) {
-    const error = new Error(`Error ${res.status}`);
-    error.status = res.status;
-    return Promise.reject(error);
-  }
-  return res.json();
-};
+import { checkRes } from "../utils/api";
 
 //sign up for user registration
 function signUp({ name, email, password, avatar }) {

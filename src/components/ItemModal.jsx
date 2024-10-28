@@ -10,6 +10,7 @@ function ItemModal({
   handleModalClick,
   handleDeleteClick,
   isOpen,
+  isResetForm,
 }) {
   //conditional src based on if the card has a link or url
   const imgSrc = card.link || card.imageUrl || card.url;

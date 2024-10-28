@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../blocks/modal.css";
 import ModalWithForm from "./ModalWithForm";
 
@@ -11,6 +11,7 @@ const RegisterModal = ({
   registerUser,
   switchForms,
   isSameUser,
+  isResetForm,
 }) => {
   const [data, setData] = useState({
     name: "",
@@ -31,8 +32,13 @@ const RegisterModal = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     registerUser(data);
-    setData({ name: "", email: "", password: "", avatar: "" });
   };
+
+  useEffect(() => {
+    if (isResetForm) {
+      setData({ name: "", email: "", password: "", avatar: "" });
+    }
+  }, [isResetForm]);
 
   return (
     <ModalWithForm

@@ -60,11 +60,13 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSameUser, setIsSameUser] = useState(false);
   const [isNoUser, setIsNoUser] = useState(false);
+  const [isResetForm, setIsResetForm] = useState(false);
 
   const navigate = useNavigate();
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+    setIsResetForm(true);
   };
 
   const handleCardClick = (card) => {
@@ -74,10 +76,12 @@ function App() {
 
   const handleRegisterClick = () => {
     setActiveModal("register");
+    setIsResetForm(true);
   };
 
   const handleLoginClick = () => {
     setActiveModal("log-in");
+    setIsResetForm(true);
   };
 
   const handleChangeClick = () => {
@@ -95,6 +99,7 @@ function App() {
     setActiveModal("");
     setIsSameUser(false);
     setIsNoUser(false);
+    setIsResetForm(false);
   };
 
   const clickAwayModal = (evt) => {
@@ -371,6 +376,7 @@ function App() {
           handleModalClick={clickAwayModal}
           isOpen={activeModal === "add-garment"}
           isLoading={isLoading}
+          isResetForm={isResetForm}
         />
 
         <ItemModal
@@ -409,6 +415,7 @@ function App() {
         registerUser={registerUser}
         switchForms={swapForms}
         isSameUser={isSameUser}
+        isResetForm={isResetForm}
       />
 
       <LoginModal
@@ -420,6 +427,7 @@ function App() {
         logInUser={logInUser}
         switchForms={swapForms}
         isNoUser={isNoUser}
+        isResetForm={isResetForm}
       />
     </CurrentTemperatureUnitContext.Provider>
   );

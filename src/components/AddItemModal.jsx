@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../blocks/modal.css";
 import ModalWithForm from "./ModalWithForm";
 
@@ -10,6 +10,7 @@ const AddItemModal = ({
   onAddItem,
   onCloseModal,
   handleModalClick,
+  isResetForm,
 }) => {
   // declare state for each input field
   const [name, setName] = useState("");
@@ -34,10 +35,15 @@ const AddItemModal = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onAddItem({ name, link, weather });
-    setName("");
-    setLink("");
-    setType("");
   };
+
+  useEffect(() => {
+    if (isResetForm) {
+      setName("");
+      setLink("");
+      setType("");
+    }
+  }, [isResetForm]);
 
   return (
     <ModalWithForm

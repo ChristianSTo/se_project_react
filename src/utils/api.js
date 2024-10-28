@@ -2,7 +2,12 @@ const baseUrl = "http://localhost:3001";
 
 //higher scope function for repeated res.ok checks
 const checkRes = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
+  if (!res.ok) {
+    const error = new Error(`Error ${res.status}`);
+    error.status = res.status;
+    return Promise.reject(error);
+  }
+  return res.json();
 };
 
 //get the initial provided items
@@ -63,4 +68,11 @@ function removeCardLike({ itemId, token }) {
   }).then(checkRes);
 }
 
-export { getItems, addItems, deleteItems, addCardLike, removeCardLike };
+export {
+  getItems,
+  addItems,
+  deleteItems,
+  addCardLike,
+  removeCardLike,
+  checkRes,
+};

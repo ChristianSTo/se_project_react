@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../blocks/modal.css";
 import ModalWithForm from "./ModalWithForm";
 
@@ -11,6 +11,7 @@ const LoginModal = ({
   logInUser,
   switchForms,
   isNoUser,
+  isResetForm,
 }) => {
   const [data, setData] = useState({
     email: "",
@@ -29,8 +30,13 @@ const LoginModal = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     logInUser(data);
-    setData({ email: "", password: "" });
   };
+
+  useEffect(() => {
+    if (isResetForm) {
+      setData({ email: "", password: "" });
+    }
+  }, [isResetForm]);
 
   return (
     <ModalWithForm
