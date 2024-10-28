@@ -31,18 +31,21 @@ function ClothesSection({
       <ul className="clothes-section__cards">
         {/* not filtering to list all owned clothes */}
         {/* filtering in main for weather suggestions */}
-        {clothingItems.map((item) => {
-          if (item.owner === currentUser._id) {
-            return (
-              <ItemCard
-                key={item._id}
-                item={item}
-                previewCard={handleCardClick}
-                onCardLike={onCardLike}
-              />
-            );
-          }
-        })}
+        {clothingItems
+          .slice()
+          .reverse()
+          .map((item) => {
+            if (item.owner === currentUser._id) {
+              return (
+                <ItemCard
+                  key={item._id}
+                  item={item}
+                  previewCard={handleCardClick}
+                  onCardLike={onCardLike}
+                />
+              );
+            }
+          })}
       </ul>
     </div>
   );

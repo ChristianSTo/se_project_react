@@ -66,6 +66,7 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+    //reset the form when opened
     setIsResetForm(true);
   };
 
@@ -131,6 +132,8 @@ function App() {
       //here, data is the added item because addItems is called first
       .then((addedData) => {
         setClothingItems((prevItems) => [...prevItems, addedData.data]);
+        //reset the form in the then block for successful form, but do not reset an unsuccessful form
+        setIsResetForm(true);
         closeModal();
         setIsLoading(false);
       })
@@ -197,6 +200,7 @@ function App() {
     signUp(data)
       .then((data) => {
         console.log(data);
+        setIsResetForm(true);
         //close modal
         closeModal();
       })
@@ -210,10 +214,8 @@ function App() {
   };
 
   const logInUser = (res) => {
-    // console.log("Logging In");
     signIn(res)
       .then((res) => {
-        // console.log(res);
         //set token for user
         localStorage.setItem("jwt", res.token);
         // save the user
@@ -224,6 +226,8 @@ function App() {
         setCurrentUser(userData);
         //set login state status
         setIsLoggedIn(true);
+        //reset form
+        setIsResetForm(true);
         //close modal
         closeModal();
       })
