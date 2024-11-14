@@ -10,3 +10,5 @@ export default defineConfig({
     port: 3000,
   },
 });
+
+//base: "/se_project_react",

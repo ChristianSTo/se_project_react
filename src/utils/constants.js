@@ -43,3 +43,8 @@ export const coordinates = {
 };
 
 export const APIkey = "b4e31b8fcbfc1476f76de4b7a8fdded8";
+
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wearable.donhoo.com"
+    : "http://localhost:3001";

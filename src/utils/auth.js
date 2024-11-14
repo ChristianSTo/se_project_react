@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3001";
+import { baseUrl } from "../utils/constants";
 import { checkRes } from "../utils/api";
 
 //sign up for user registration
