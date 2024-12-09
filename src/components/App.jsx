@@ -45,7 +45,6 @@ https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/logo.svg
  */
 
 function App() {
-  console.log("JavaScript loaded successfully");
   const [weatherData, setWeatherData] = useState({
     type: "cold",
     temp: { F: 9999, C: 9999 },
@@ -157,7 +156,6 @@ function App() {
     deleteItems({ itemId: cardId, token })
       //update the page
       .then((data) => {
-        console.log(data);
         setClothingItems(clothingItems.filter((card) => card._id !== cardId));
         //close modal and deselect card
         closeModal();
